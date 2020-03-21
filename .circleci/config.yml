@@ -9,8 +9,11 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: npm build
             - run: npm test
+            - run: npm package:lambda
+            - run: npm push:lambda
+            - run: npm deploy:lambda
 workflows:
     build-and-test:
       jobs:

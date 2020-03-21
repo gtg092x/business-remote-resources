@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:lambda": "docker-compose build && docker-compose run builder bash integration/package.sh",
+    "package:lambda": "docker-compose build && docker-compose run builder bash integration/package.sh",
     "push:lambda": "bash integration/push.sh",
     "deploy:lambda": "bash integration/deploy.sh"
   },
