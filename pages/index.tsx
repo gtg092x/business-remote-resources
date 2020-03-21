@@ -5,6 +5,10 @@ import Nav from '../shared/components/Nav';
 import index from '../shared/controllers';
 
 export async function getServerSideProps () {
+  /*
+    Do not use the fetcher here.
+    Loopback SSR calls aren't supported.
+   */
   const data = await index()
   return { props: { data } }
 }

@@ -5,6 +5,10 @@ import Nav from '../../shared/components/Nav'
 import about from '../../shared/controllers/about'
 
 export async function getServerSideProps () {
+  /*
+    Do not use the fetcher here.
+    Loopback SSR calls aren't supported.
+   */
   const data = await about()
   return { props: { data } }
 }

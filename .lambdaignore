@@ -1,0 +1,16 @@
+pages/*
+public/*
+models/*
+migrations/*
+test/*
+.git*
+.env
+*.scratch.js
+*.d.ts
+docker-compose.yml
+tsconfig.json
+yarn.lock
+server.js
+.idea/*
+shared/*
+.zipignore
