@@ -7,20 +7,11 @@ services:
       dockerfile: integration/Dockerfile
     volumes:
     - lambdatask:/var/dist
-    - $PWD/bundles:/var/bundles
-    - $PWD/build:/var/task/build
+    - ./bundles:/var/bundles
   lambda:
     image: lambci/lambda:nodejs12.x
     volumes:
     - lambdatask:/var/task
-  database:
-    image: "postgis/postgis" # use latest official postgres version
-    env_file:
-    - .env # configure postgres
-    volumes:
-    - ./data/:/var/lib/postgresql/data/ # persist data even if container shuts down
-    ports:
-    - "25432:5432"
 
 volumes:
   lambdatask: {}
