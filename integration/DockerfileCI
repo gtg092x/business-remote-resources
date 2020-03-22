@@ -6,7 +6,6 @@ ENV NODE_ENV production
 COPY pages pages
 COPY public public
 COPY migrations migrations
-COPY models models
 COPY integration integration
 COPY shared shared
 COPY package.json package.json
