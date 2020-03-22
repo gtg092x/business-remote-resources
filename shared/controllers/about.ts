@@ -1,5 +1,5 @@
 async function about (){
-  return { about: 'Server' }
+  return { about: 'This is server data' }
 }
 
 export default about

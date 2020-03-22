@@ -32,10 +32,11 @@ const About = (props) => {
       <Nav />
       <main>
         <h1 className="title">
-          About {data.about}
+          About
         </h1>
 
         <p className="description">
+          Loaded from server: {data.about}
         </p>
       </main>
     </div>

@@ -32,10 +32,11 @@ const Home = (props) => {
       <Nav />
       <main>
         <h1 className="title">
-          Index {data.name}
+          Index
         </h1>
 
         <p className="description">
+          Loaded from server: {data.user}
         </p>
       </main>
     </div>

@@ -1,13 +1,18 @@
 import Link from 'next/link';
+import styled from 'styled-components'
+
+const NavAnch = styled.a`
+  margin: 0 12px;
+`
 
 const Nav = () => {
   return (
     <nav>
       <Link href="/">
-        <a>Home</a>
+        <NavAnch>Home</NavAnch>
       </Link>
       <Link href="/about">
-        <a>About</a>
+        <NavAnch>About</NavAnch>
       </Link>
     </nav>
   )
