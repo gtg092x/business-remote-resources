@@ -3,8 +3,6 @@ FROM lambci/lambda:build-nodejs12.x
 ENV AWS_DEFAULT_REGION us-west-2
 ENV NODE_ENV production
 
-VOLUME lambdatask:/var/task/dist
-
 COPY pages pages
 COPY public public
 COPY migrations migrations
@@ -24,3 +22,8 @@ RUN yarn build
 
 RUN rm -rf node_modules
 RUN yarn install --production
+RUN mkdir /var/bundles
+RUN cat .lambdaignore | xargs zip -9qyr /var/bundles/lambda.zip . -x
+
+CMD aws s3 cp /var/bundles/lambda.zip s3://lambda-covid-resources/builds/$CIRCLE_SHA1.zip \
+  --region us-west-2

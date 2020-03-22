@@ -25,7 +25,7 @@ const Home = (props) => {
   return (
     <div className="container">
       <Head>
-        <title>Boilerplate</title>
+        <title>Sample Boilerplate</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

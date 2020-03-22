@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:lambda": "docker-compose build && docker-compose run builder bash integration/package.sh",
-    "push:lambda": "bash integration/push.sh",
-    "deploy:lambda": "bash integration/deploy.sh"
+    "lambda:package-ci": "CIRCLE_SHA1=${CIRCLE_SHA1:-$(git log --pretty=format:'%h' -n 1)} bash integration/package-ci.sh",
+    "lambda:deploy": "bash integration/deploy.sh"
   },
   "dependencies": {
     "axios": "^0.19.2",

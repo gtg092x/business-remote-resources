@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  docker: circleci/docker@1.0.0
+  aws-cli: circleci/aws-cli@0.1.22
+  node: circleci/node@1.1.6
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - aws-cli/setup
+      - setup_remote_docker
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm run build
+            - run: npm run test
+            - run: npm run lambda:package-ci
+            - run: npm run lambda:deploy covid-resources-dev
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test:
+            filters:
+              branches:
+                only:
+                - master
+                - circleci-project-setup
