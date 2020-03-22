@@ -15,7 +15,6 @@ jobs:
           steps:
             - run: npm run build
             - run: npm run test
-            - run: npm run lambda:config
             - run: npm run lambda:package-ci
             - run: npm run lambda:deploy covid-resources-dev
 workflows:
