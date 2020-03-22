@@ -7,7 +7,7 @@ const {
   POSTGRES_PORT = 5432,
   TYPEORM_MODE = 'dev',
 } = process.env
-console.log(process.env)
+
 module.exports = {
   type: "postgres",
   database: POSTGRES_DB,
