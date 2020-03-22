@@ -14,7 +14,7 @@ module.exports = {
   "port": POSTGRES_PORT,
   "username": POSTGRES_USER,
   "password": POSTGRES_PASSWORD,
-  "entities": ["./src/models/*.ts"],
+  "entities": ["./shared/models/*.ts"],
   "migrations": ["./migrations/*.ts"],
   "synchronize": false,
   "logging": true,
