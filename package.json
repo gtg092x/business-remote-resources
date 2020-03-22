@@ -12,10 +12,13 @@
   "dependencies": {
     "axios": "^0.19.2",
     "next": "9.3.1",
+    "pg": "^7.18.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "reflect-metadata": "^0.1.13",
     "serverless-http": "^2.3.2",
-    "swr": "^0.1.18"
+    "swr": "^0.1.18",
+    "typeorm": "^0.2.24"
   },
   "devDependencies": {
     "@types/node": "^13.9.2",
