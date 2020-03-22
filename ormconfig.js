@@ -16,12 +16,12 @@ module.exports = {
   username: POSTGRES_USER,
   password: POSTGRES_PASSWORD,
   entities: ["shared/models/*.ts"],
-  migrations: ["migrations/*.ts"],
+  migrations: ["shared/migrations/*.ts"],
   synchronize: false,
   migrationsRun: TYPEORM_MODE === 'live',
   logging: true,
   cli: {
-    migrationsDir: "migrations",
+    migrationsDir: "shared/migrations",
     entitiesDir: ["shared/models"]
   }
 }

@@ -1,6 +1,5 @@
 pages/*
-models/*
-migrations/*
+integrations/*
 test/*
 .git*
 .env
