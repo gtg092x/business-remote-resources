@@ -1,5 +1,6 @@
 import { Connection, createConnection, getConnectionOptions, getConnection } from 'typeorm';
 import { User } from '../models/User';
+import {AddUser1584848626307} from '../migrations/1584848626307-AddUser';
 
 const {
   TYPEORM_MODE = 'dev',
@@ -21,7 +22,9 @@ export const initializeDatabase = async (): Promise<Connection> => {
       User
     ],
     migrationsRun: TYPEORM_MODE === 'live',
-    migrations: [__dirname + '/../migrations/*'],
+    migrations: [
+      AddUser1584848626307,
+    ],
   };
 
   const connection = await createConnection(options);
