@@ -8,8 +8,8 @@
       "start": "ts-node src/index.ts",
       "lambda:package-ci": "CIRCLE_SHA1=${CIRCLE_SHA1:-$(git log --pretty=format:'%h' -n 1)} bash integration/package-ci.sh",
       "lambda:deploy": "bash integration/deploy.sh",
-      "typeorm:local": "dotenv_config_path=.env.local ts-node --project tsconfig.server.json -r dotenv/config -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-      "typeorm:prod": "dotenv_config_path=.env.production ts-node -r dotenv/config --project tsconfig.server.json -r tsconfig-paths/register ./node_modules/typeorm/cli.js "
+      "typeorm:local": "DOTENV_CONFIG_PATH=.env.local ts-node --project tsconfig.server.json -r dotenv/config -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+      "typeorm:prod": "DOTENV_CONFIG_PATH=.env.production ts-node -r dotenv/config --project tsconfig.server.json -r tsconfig-paths/register ./node_modules/typeorm/cli.js "
    },
    "dependencies": {
       "axios": "^0.19.2",

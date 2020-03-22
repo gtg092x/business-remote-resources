@@ -5,8 +5,9 @@ const {
   POSTGRES_DB,
   POSTGRES_HOST,
   POSTGRES_PORT = 5432,
+  TYPEORM_MODE = 'dev',
 } = process.env
-
+console.log(process.env)
 module.exports = {
   type: "postgres",
   database: POSTGRES_DB,
@@ -17,6 +18,7 @@ module.exports = {
   entities: ["shared/models/*.ts"],
   migrations: ["migrations/*.ts"],
   synchronize: false,
+  migrationsRun: TYPEORM_MODE === 'live',
   logging: true,
   cli: {
     migrationsDir: "migrations",
