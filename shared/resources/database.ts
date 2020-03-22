@@ -1,6 +1,10 @@
 import { Connection, createConnection, getConnectionOptions, getConnection } from 'typeorm';
 import { User } from '../models/User';
 
+const {
+  TYPEORM_MODE = 'dev',
+} = process.env
+
 export const initializeDatabase = async (): Promise<Connection> => {
   try {
     const existingConnection = await getConnection()
@@ -16,7 +20,8 @@ export const initializeDatabase = async (): Promise<Connection> => {
     entities: [
       User
     ],
-    migrations: [__dirname + '/../../migrations/*.ts'],
+    migrationsRun: TYPEORM_MODE === 'live',
+    migrations: [__dirname + '/../migrations/*'],
   };
 
   const connection = await createConnection(options);
