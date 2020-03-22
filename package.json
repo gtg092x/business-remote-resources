@@ -1,28 +1,35 @@
 {
-  "name": "remote-business-resources",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lambda:package-ci": "CIRCLE_SHA1=${CIRCLE_SHA1:-$(git log --pretty=format:'%h' -n 1)} bash integration/package-ci.sh",
-    "lambda:deploy": "bash integration/deploy.sh"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "next": "9.3.1",
-    "pg": "^7.18.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "reflect-metadata": "^0.1.13",
-    "serverless-http": "^2.3.2",
-    "swr": "^0.1.18",
-    "typeorm": "^0.2.24"
-  },
-  "devDependencies": {
-    "@types/node": "^13.9.2",
-    "@types/react": "^16.9.25",
-    "typescript": "^3.8.3"
-  }
+   "name": "remote-business-resources",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "ts-node src/index.ts",
+      "lambda:package-ci": "CIRCLE_SHA1=${CIRCLE_SHA1:-$(git log --pretty=format:'%h' -n 1)} bash integration/package-ci.sh",
+      "lambda:deploy": "bash integration/deploy.sh",
+      "typeorm:local": "dotenv_config_path=.env.local ts-node --project tsconfig.server.json -r dotenv/config -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+      "typeorm:prod": "dotenv_config_path=.env.production ts-node -r dotenv/config --project tsconfig.server.json -r tsconfig-paths/register ./node_modules/typeorm/cli.js "
+   },
+   "dependencies": {
+      "axios": "^0.19.2",
+      "mysql": "^2.14.1",
+      "next": "9.3.1",
+      "pg": "^7.18.2",
+      "react": "16.13.1",
+      "react-dom": "16.13.1",
+      "reflect-metadata": "^0.1.10",
+      "serverless-http": "^2.3.2",
+      "swr": "^0.1.18",
+      "typeorm": "0.2.24"
+   },
+   "devDependencies": {
+      "@babel/plugin-proposal-decorators": "^7.8.3",
+      "@types/node": "^8.0.29",
+      "@types/react": "^16.9.25",
+      "dotenv": "^8.2.0",
+      "ts-node": "3.3.0",
+      "tsconfig-paths": "^3.9.0",
+      "typescript": "3.3.3333"
+   }
 }

@@ -8,18 +8,18 @@ const {
 } = process.env
 
 module.exports = {
-  "type": "postgres",
-  "database": POSTGRES_DB,
-  "host": POSTGRES_HOST,
-  "port": POSTGRES_PORT,
-  "username": POSTGRES_USER,
-  "password": POSTGRES_PASSWORD,
-  "entities": ["./shared/models/*.ts"],
-  "migrations": ["./migrations/*.ts"],
-  "synchronize": false,
-  "logging": true,
-  "cli": {
-    "migrationsDir": "migrations",
-    "entitiesDir": ["./src/models"]
+  type: "postgres",
+  database: POSTGRES_DB,
+  host: POSTGRES_HOST,
+  port: POSTGRES_PORT,
+  username: POSTGRES_USER,
+  password: POSTGRES_PASSWORD,
+  entities: ["shared/models/*.ts"],
+  migrations: ["migrations/*.ts"],
+  synchronize: false,
+  logging: true,
+  cli: {
+    migrationsDir: "migrations",
+    entitiesDir: ["shared/models"]
   }
 }

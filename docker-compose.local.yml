@@ -4,7 +4,7 @@ services:
   database:
     image: "postgis/postgis" # use latest official postgres version
     env_file:
-    - .env # configure postgres
+    - .env.local # configure postgres
     volumes:
     - ./data/:/var/lib/postgresql/data/ # persist data even if container shuts down
     ports:

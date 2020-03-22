@@ -11,6 +11,7 @@ COPY integration integration
 COPY shared shared
 COPY package.json package.json
 COPY yarn.lock yarn.lock
+COPY .babelrc .babelrc
 COPY tsconfig.json tsconfig.json
 
 COPY .lambdaignore .lambdaignore
